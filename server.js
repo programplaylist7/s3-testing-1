@@ -1,14 +1,14 @@
 import express from "express"
-import dotenv from "dotenv"
 import mongoose from "mongoose";
 import serverless from "serverless-http";
-dotenv.config();
 
 const app = express();
 app.use(express.json());
-// MongoDB connection caching (IMPORTANT for Lambda)
-let isConnected = false;
 
+console.log("Mongo URL:", process.env.MONGO_URL); // DEBUG
+
+// MongoDB connection caching (IMPORTANT for Lambda
+let isConnected = false;
 const connectDB = async () => {
   if (isConnected) return;
 
