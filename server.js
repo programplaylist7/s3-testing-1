@@ -5,8 +5,6 @@ import serverless from "serverless-http";
 const app = express();
 app.use(express.json());
 
-console.log("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE:", process.env); // DEBUG
-
 // MongoDB connection caching (IMPORTANT for Lambda
 let isConnected = false;
 const connectDB = async () => {
