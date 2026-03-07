@@ -32,7 +32,6 @@ app.use("/api", userRoute);
 //   console.log(`app started on port: ${PORT}`);
 // });
 
-
 const serverlessHandler = serverless(app); // create once
 export const handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
