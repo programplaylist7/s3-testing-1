@@ -2,6 +2,8 @@ import express from "express"
 import mongoose from "mongoose";
 import serverless from "serverless-http";
 import userRoute from "./route.js";
+// import dotenv from "dotenv"
+// dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -17,12 +19,18 @@ const connectDB = async () => {
 };
 
 app.get("/", (req, res) => {
-    res.json({
-        "message": "working fine"
-    })
+  res.json({
+    "message": "working fine"
+  })
 });
 
 app.use("/api", userRoute);
+
+// connectDB();
+// const PORT = process.env.PORT;
+// app.listen(PORT, () => {
+//   console.log(`app started on port: ${PORT}`);
+// });
 
 const serverlessHandler = serverless(app); // create once
 export const handler = async (event, context) => {
