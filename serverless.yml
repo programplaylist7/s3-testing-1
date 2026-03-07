@@ -5,6 +5,8 @@ provider:
   runtime: nodejs20.x
   region: ap-south-1
 
+  deploymentBucket:
+    name: s3-lambda-testing-01
   environment:
     MONGO_URL: ${env:MONGO_URL} 
 
