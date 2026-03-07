@@ -1,6 +1,7 @@
 import express from "express"
 import mongoose from "mongoose";
 import serverless from "serverless-http";
+import userRoute from "./route.js";
 
 const app = express();
 app.use(express.json());
@@ -21,8 +22,9 @@ app.get("/", (req, res) => {
     })
 });
 
-const serverlessHandler = serverless(app); // create once
+app.use("/api", userRoute);
 
+const serverlessHandler = serverless(app); // create once
 export const handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
